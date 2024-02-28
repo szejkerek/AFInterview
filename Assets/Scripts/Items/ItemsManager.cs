@@ -1,30 +1,30 @@
 ﻿namespace AFSInterview.Items
 {
+    using AFSInterview.Utility;
     using System.Collections.Generic;
     using TMPro;
     using UnityEngine;
 
     public class ItemsManager : MonoBehaviour
 	{
-        [SerializeField] private InventoryController inventoryController;
+        [SerializeField] private Inventory inventory;
         [SerializeField] private List<ItemSO> possibleItems;
 
         [Header("Items proporties")]
-        [SerializeField] private LayerMask itemLayerMask;
-        [SerializeField] private int itemSellMaxValue;
-        [SerializeField] private Transform itemSpawnParent;
         [SerializeField] private ItemPresenter itemPresenterPrefab;
+        [SerializeField] private LayerMask itemLayerMask;
+        [SerializeField] private Transform itemSpawnParent;
         [SerializeField] private BoxCollider itemSpawnArea;
+        [SerializeField] private int itemSellMaxValue;
         [SerializeField] private float itemSpawnInterval;
-
-        [Header("User interface")]
-        [SerializeField] private TextMeshProUGUI moneyDisplay;
 
         private float nextItemSpawnTime;
 		private Camera mainCamera;
+
         private void Awake()
         {
             mainCamera = Camera.main;
+            inventory = new Inventory();
         }
 
         private void Update()
@@ -35,9 +35,7 @@
 				TryPickUpItem();
 			
 			if (Input.GetKeyDown(KeyCode.Space))
-				inventoryController.SellAllItemsUpToValue(itemSellMaxValue);
-
-            moneyDisplay.text = $"Money: {inventoryController.Money}";
+				inventory.SellAllItemsUpToValue(itemSellMaxValue);     
         }
 
 		private void TrySpawnNewItem()
@@ -62,11 +60,19 @@
 			var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 			if (!Physics.Raycast(ray, out var hit, 100f, itemLayerMask) || !hit.collider.TryGetComponent<IItemHolder>(out var itemHolder))
 				return;		
-			var item = itemHolder.GetItem(disposeHolder: true);
+			ItemSO item = itemHolder.GetItem(disposeHolder: true);
 
-            inventoryController.AddItem(item);
+            IUsableItem usableItem = item as IUsableItem;
+            if (usableItem != null)
+            {
+                usableItem.Use(inventory);
+            }
+            else
+            {
+                inventory.AddItem(item);
+            }
 
-            Debug.Log($"Picked up {item.Name} with value of {item.Value} and now have {inventoryController.ItemsCount} items.");
+            Debug.Log($"Picked up {item.Name} with value of {item.SellValue} and now have {inventory.ItemsCount} items.");
         }
 	}
 }

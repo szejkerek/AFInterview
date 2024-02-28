@@ -1,26 +1,42 @@
 ﻿namespace AFSInterview.Items
 {
+    using System;
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class InventoryController : MonoBehaviour
-	{
-		[SerializeField] private int money;
-		[SerializeField] private List<ItemSO> items;
+    [Serializable]
+    public class Inventory
+    {
+        public static Action<int> onMoneyUpdated;
 
-		public int Money => money;
-		public int ItemsCount => items.Count;
+        [SerializeField] private int money;
+        [SerializeField] private List<ItemSO> items = new List<ItemSO>();
+
+        public int Money => money;
+        public int ItemsCount => items.Count;
+
+        public Inventory()
+        {
+            if (money > 0)
+                onMoneyUpdated?.Invoke(money);
+        }
 
         public void SellAllItemsUpToValue(int maxValue)
         {
             for (int i = items.Count - 1; i >= 0; i--)
             {
-                if (items[i].Value > maxValue)
+                if (items[i].SellValue > maxValue)
                     continue;
-  
-                money += items[i].Value;
+
+                money += items[i].SellValue;
                 RemoveItem(i);
             }
+        }
+
+        public void AddMoney(int amount)
+        {
+            money += amount;
+            onMoneyUpdated?.Invoke(money);
         }
 
         public void AddItem(ItemSO item)

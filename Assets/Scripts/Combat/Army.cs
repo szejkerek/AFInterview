@@ -1,12 +1,18 @@
 ﻿using AFSInterview.Utility;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace AFSInterview.Combat
 {
     public class Army : MonoBehaviour
     {
+        public static System.Action<Army> onNextAction;
+        public string ArmyName => armyName;
+        [SerializeField] string armyName;
+
+        public int TurnNumber => turnNumber;
+        private int turnNumber = 0;
+
         [SerializeField, Range(0f,16f)] float spawnRange;
         [SerializeField] List<Unit> initialArmy;
         public List<Unit> CurrentArmy => currentArmy;
@@ -36,7 +42,8 @@ namespace AFSInterview.Combat
 
         public bool IsAlive()
         {
-            return currentArmy.Any(item => !item.IsDead);
+            currentArmy.RemoveAll(item => item.IsDead);
+            return currentArmy.Count > 0;
         }
 
         private Vector3 RandomPosition()
@@ -47,22 +54,21 @@ namespace AFSInterview.Combat
             return new Vector3(transform.position.x + xOffset, 0, transform.position.z + zOffset);
         }
 
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireCube(transform.position, new Vector3(spawnRange, 0.1f, spawnRange));
-        }
-
         public void ExecuteNextAction()
         {
             Unit currentUnit = actionQueue.Dequeue();
             StartCoroutine(currentUnit.PerformAction(this, enemyArmy));
-            actionQueue.Enqueue(currentUnit);
         }
 
         public bool ShouldChangeTurn()
         {
             return actionQueue.Count == 0;
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireCube(transform.position, new Vector3(spawnRange, 0.1f, spawnRange));
         }
     }
 }

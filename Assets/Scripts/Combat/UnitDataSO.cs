@@ -12,6 +12,7 @@ namespace AFSInterview
         [field: SerializeField] public int ArmorPoints { private set; get; }
         [field: SerializeField] public int AttackInterval { private set; get; }
         [field: SerializeField] public int AttackDamage { private set; get; }
+        [field: SerializeField] public float MovementSpeed { private set; get; }
         [field: SerializeField] public DamageOverride AttackDamageOverride { private set; get; }
     }
 

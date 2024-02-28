@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,13 +6,15 @@ namespace AFSInterview.Combat
 {
     public abstract class Unit : MonoBehaviour
     {
+        public static Action OnActionEnded;
+        protected Vector3 startingPosition;
+
         [SerializeField] UnitDataSO unitData;
         public UnitDataSO UnitData => unitData;
         public bool IsDead => isDead;
 
         int currentHealth;
         HealthBar healthBar;
-        Vector3 startingPosition;
         bool isDead = false;
 
         private void Awake()
@@ -53,6 +56,15 @@ namespace AFSInterview.Combat
             finalDamage = Mathf.Max(1, finalDamage - target.unitData.ArmorPoints);
             Debug.Log($"{gameObject.name} delt {finalDamage} damage ({unitData.AttackDamage} - {target.unitData.ArmorPoints}) to {target.gameObject.name}.");
             target.TakeDamage(finalDamage);
+        }
+
+        protected IEnumerator MoveCharacter(Vector3 position, float tooCloseRange = 0)
+        {
+            while (Vector3.Distance(transform.position, position) > tooCloseRange)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, position, Time.deltaTime * UnitData.MovementSpeed);
+                yield return null;
+            }
         }
 
         private void TakeDamage(int damage)

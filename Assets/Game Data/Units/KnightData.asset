@@ -17,6 +17,7 @@ MonoBehaviour:
   <ArmorPoints>k__BackingField: 3
   <AttackInterval>k__BackingField: 2
   <AttackDamage>k__BackingField: 5
+  <MovementSpeed>k__BackingField: 13.22
   <AttackDamageOverride>k__BackingField:
     <UnitAttribute>k__BackingField: 0
     <AttackDamage>k__BackingField: 7

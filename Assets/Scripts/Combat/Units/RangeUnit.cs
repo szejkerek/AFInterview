@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace AFSInterview.Combat
 {
-    public class ArcherUnit : Unit
+    public class RangeUnit : Unit
     {
-        [SerializeField] Transform shootingPoint;
-        [SerializeField] GameObject arrowPrefab;
-        [SerializeField] float arrowSpeed = 5f; 
-        [SerializeField] float destroyDistance = 0.1f;
+        [SerializeField] protected Transform shootingPoint;
+        [SerializeField] protected GameObject bulletPrefab;
+        [SerializeField] protected float arrowSpeed = 5f; 
+        [SerializeField] protected float destroyDistance = 0.1f;
         public override IEnumerator PerformAction(Army ownArmy, Army enemyArmy)
         {
             var enemy = enemyArmy.CurrentArmy.SelectRandomElement();
@@ -18,7 +18,7 @@ namespace AFSInterview.Combat
             yield return new WaitForSeconds(0.5f);
 
             yield return StartCoroutine(RotateCharacter(enemy.transform.position));
-            yield return StartCoroutine(ShootProjectile(arrowPrefab, shootingPoint, enemy.transform.position, destroyDistance, arrowSpeed));
+            yield return StartCoroutine(ShootProjectile(bulletPrefab, shootingPoint, enemy.transform.position, destroyDistance, arrowSpeed));
             DealDamage(enemy);
 
 

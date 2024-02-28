@@ -51,7 +51,7 @@ MonoBehaviour:
   movementSpeed: 35
   unitData: {fileID: 11400000, guid: df64cbb6ed2197b4db7cc69737d46435, type: 2}
   shootingPoint: {fileID: 89349804575527793}
-  healingPrefab: {fileID: 7745017148218295359, guid: f7cc47742c6343c42b1bb44322b2a18c,
+  bulletPrefab: {fileID: 7745017148218295359, guid: f7cc47742c6343c42b1bb44322b2a18c,
     type: 3}
   arrowSpeed: 3.5
   destroyDistance: 0.1

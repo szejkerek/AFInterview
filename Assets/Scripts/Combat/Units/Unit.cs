@@ -62,9 +62,14 @@ namespace AFSInterview.Combat
 
         protected IEnumerator MoveCharacter(Vector3 position, float tooCloseRange = 0.3f)
         {
+            float startTime = Time.time;
             while (Vector3.Distance(transform.position, position) > tooCloseRange)
             {
                 transform.position = Vector3.MoveTowards(transform.position, position, Time.deltaTime * movementSpeed);
+                if (Time.time - startTime >= 1.5f)
+                {
+                    break;
+                }
                 yield return null;
             }
         }
@@ -74,10 +79,14 @@ namespace AFSInterview.Combat
             Vector3 direction = (targetPosition - transform.position).normalized;
 
             Quaternion targetRotation = Quaternion.LookRotation(direction);
-
+            float startTime = Time.time;
             while (transform.rotation != targetRotation)
             {
                 transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
+                if (Time.time - startTime >= 1.5f)
+                {
+                    break;
+                }
                 yield return null;
             }
         }

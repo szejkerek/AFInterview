@@ -309,10 +309,10 @@ MonoBehaviour:
   armyName: Left army
   spawnRange: 10.49
   initialArmy:
-  - {fileID: 8725563011239852112, guid: a5a97a481ecbf4d4ab67fce9baaebe0b, type: 3}
-  - {fileID: 2360395596933593018, guid: 0e600d500129f5648a655e5757a46c67, type: 3}
   - {fileID: 2360395596933593018, guid: 0e600d500129f5648a655e5757a46c67, type: 3}
   - {fileID: 4007728192066735702, guid: a292741bf8b9fe746ae9a4b398560989, type: 3}
+  - {fileID: 5164099960706163047, guid: a5a97a481ecbf4d4ab67fce9baaebe0b, type: 3}
+  - {fileID: 773941018346932161, guid: e3c550d8ef120d146a415aafe690766f, type: 3}
 --- !u!1 &462161345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,9 +1045,10 @@ MonoBehaviour:
   armyName: Right army
   spawnRange: 10.49
   initialArmy:
-  - {fileID: 8725563011239852112, guid: a5a97a481ecbf4d4ab67fce9baaebe0b, type: 3}
-  - {fileID: 8725563011239852112, guid: a5a97a481ecbf4d4ab67fce9baaebe0b, type: 3}
   - {fileID: 2360395596933593018, guid: 0e600d500129f5648a655e5757a46c67, type: 3}
+  - {fileID: 4007728192066735702, guid: a292741bf8b9fe746ae9a4b398560989, type: 3}
+  - {fileID: 5164099960706163047, guid: a5a97a481ecbf4d4ab67fce9baaebe0b, type: 3}
+  - {fileID: 773941018346932161, guid: e3c550d8ef120d146a415aafe690766f, type: 3}
 --- !u!1 &1464522872
 GameObject:
   m_ObjectHideFlags: 0

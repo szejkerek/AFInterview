@@ -49,7 +49,7 @@
 			if (!Physics.Raycast(ray, out var hit, 100f, layerMask) || !hit.collider.TryGetComponent<IItemHolder>(out var itemHolder))
 				return;
 			
-			var item = itemHolder.GetItem(true);
+			var item = itemHolder.GetItem(disposeHolder: true);
             inventoryController.AddItem(item);
             Debug.Log("Picked up " + item.Name + " with value of " + item.Value + " and now have " + inventoryController.ItemsCount + " items");
 		}

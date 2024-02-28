@@ -228,7 +228,7 @@ Transform:
   m_Children:
   - {fileID: 1201324634}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &246465937
 GameObject:
@@ -259,7 +259,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &278868167
 GameObject:
@@ -305,11 +305,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf42d9c38d23a847833478c7cc926b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armyName: 
+  armyName: Left army
   spawnRange: 10.49
   initialArmy:
-  - {fileID: 8725563011239852112, guid: a5a97a481ecbf4d4ab67fce9baaebe0b, type: 3}
-  - {fileID: 8725563011239852112, guid: a5a97a481ecbf4d4ab67fce9baaebe0b, type: 3}
   - {fileID: 8725563011239852112, guid: a5a97a481ecbf4d4ab67fce9baaebe0b, type: 3}
 --- !u!1 &462161345
 GameObject:
@@ -514,53 +512,6 @@ Transform:
   m_Father: {fileID: 1284051365}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &836613732
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 836613733}
-  - component: {fileID: 836613734}
-  m_Layer: 0
-  m_Name: UserInterfaceManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &836613733
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 836613732}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1464522873}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &836613734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 836613732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d15c0182ba08b474f97135fc69698796, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moneyDisplay: {fileID: 1931683898}
-  turnText: {fileID: 0}
-  nextActionButton: {fileID: 0}
 --- !u!1 &844100217
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,7 +899,7 @@ RectTransform:
   m_Children:
   - {fileID: 462161346}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1040,7 +991,7 @@ Transform:
   - {fileID: 2003711426}
   - {fileID: 884237432}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1353391284
 GameObject:
@@ -1086,7 +1037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf42d9c38d23a847833478c7cc926b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armyName: 
+  armyName: Right army
   spawnRange: 10.49
   initialArmy:
   - {fileID: 8725563011239852112, guid: a5a97a481ecbf4d4ab67fce9baaebe0b, type: 3}
@@ -1122,7 +1073,7 @@ Transform:
   m_Children:
   - {fileID: 1526620046}
   - {fileID: 1844474794}
-  - {fileID: 836613733}
+  - {fileID: 1644132308}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1226,7 +1177,7 @@ Transform:
   - {fileID: 278868168}
   - {fileID: 1353391285}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1543346324
 MonoBehaviour:
@@ -1338,10 +1289,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1931683897}
-  - {fileID: 1936793744}
   - {fileID: 1925167019}
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  - {fileID: 1936793744}
+  m_Father: {fileID: 1464522873}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

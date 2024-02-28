@@ -56,6 +56,7 @@ namespace AFSInterview.Combat
 
         public void ExecuteNextAction()
         {
+            turnNumber++;
             Unit currentUnit = actionQueue.Dequeue();
             StartCoroutine(currentUnit.PerformAction(this, enemyArmy));
         }

@@ -11,12 +11,12 @@ namespace AFSInterview.Combat
         bool rightTurn;
         private bool isPlayable = true;
 
-        private void Awake()
+        private void Start()
         {
             right.SpawnUnits(enemyArmy: left);
             left.SpawnUnits(enemyArmy: right);
             rightTurn = Random.Range(0, 2) == 0;
-
+            Army.onNextAction?.Invoke(GetCurrentTurnArmy());
             Unit.OnActionEnded += OnEndTurn;
         }
 
@@ -41,6 +41,7 @@ namespace AFSInterview.Combat
         private void OnStartTurn()
         {
             isPlayable = false;
+            Army.onNextAction?.Invoke(GetCurrentTurnArmy());
         }
 
         private void OnEndTurn()
@@ -59,7 +60,7 @@ namespace AFSInterview.Combat
                 rightTurn = !rightTurn;
             }
 
-            Army.onNextAction?.Invoke(currentArmy);
+            
             isPlayable = true;
         }
     }

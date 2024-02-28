@@ -46,9 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f9484c9ceb4edd86800f8ff98ea1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    name: Apple
-    value: 10
+  item: {fileID: 11400000, guid: dfd7c557505f6294a9e78ac87ffa632e, type: 2}
 --- !u!65 &8426643071871308913
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,16 +1,19 @@
 ﻿namespace AFSInterview.Items
 {
+    using System.Collections.Generic;
     using TMPro;
     using UnityEngine;
 
     public class ItemsManager : MonoBehaviour
 	{
         [SerializeField] private InventoryController inventoryController;
+        [SerializeField] private List<ItemSO> possibleItems;
 
         [Header("Items proporties")]
+        [SerializeField] private LayerMask itemLayerMask;
         [SerializeField] private int itemSellMaxValue;
         [SerializeField] private Transform itemSpawnParent;
-        [SerializeField] private GameObject itemPrefab;
+        [SerializeField] private ItemPresenter itemPresenterPrefab;
         [SerializeField] private BoxCollider itemSpawnArea;
         [SerializeField] private float itemSpawnInterval;
 
@@ -50,18 +53,19 @@
             float randomZ = Random.Range(spawnAreaBounds.min.z, spawnAreaBounds.max.z);
             Vector3 position = new Vector3(randomX, 0f, randomZ);
 
-            Instantiate(itemPrefab, position, Quaternion.identity, itemSpawnParent);
+            var itemPresenter = Instantiate(itemPresenterPrefab, position, Quaternion.identity, itemSpawnParent);
+            itemPresenter.Init(possibleItems.SelectRandomElement());
 		}
 
 		private void TryPickUpItem()
 		{
 			var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-			var layerMask = LayerMask.GetMask("Item");
-			if (!Physics.Raycast(ray, out var hit, 100f, layerMask) || !hit.collider.TryGetComponent<IItemHolder>(out var itemHolder))
-				return;
-			
+			if (!Physics.Raycast(ray, out var hit, 100f, itemLayerMask) || !hit.collider.TryGetComponent<IItemHolder>(out var itemHolder))
+				return;		
 			var item = itemHolder.GetItem(disposeHolder: true);
+
             inventoryController.AddItem(item);
+
             Debug.Log($"Picked up {item.Name} with value of {item.Value} and now have {inventoryController.ItemsCount} items.");
         }
 	}

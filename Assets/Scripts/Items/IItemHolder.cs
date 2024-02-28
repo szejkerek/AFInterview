@@ -2,6 +2,8 @@
 {
 	public interface IItemHolder
 	{
-		Item GetItem(bool disposeHolder);
+		void Init(ItemSO item);
+
+        ItemSO GetItem(bool disposeHolder);
 	}
 }

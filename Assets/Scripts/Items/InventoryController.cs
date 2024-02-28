@@ -6,7 +6,7 @@
     public class InventoryController : MonoBehaviour
 	{
 		[SerializeField] private int money;
-		[SerializeField] private List<Item> items;
+		[SerializeField] private List<ItemSO> items;
 
 		public int Money => money;
 		public int ItemsCount => items.Count;
@@ -19,13 +19,26 @@
                     continue;
   
                 money += items[i].Value;
-                items.RemoveAt(i);
+                RemoveItem(i);
             }
         }
 
-        public void AddItem(Item item)
+        public void AddItem(ItemSO item)
 		{
 			items.Add(item);
 		}
-	}
+
+        void RemoveItem(int indexToRemove)
+        {
+            if (indexToRemove < 0 || indexToRemove >= items.Count)
+                return;
+
+            items.RemoveAt(indexToRemove);
+        }
+
+        public void RemoveItem(ItemSO itemToRemove)
+        {
+            items.Remove(itemToRemove);
+        }
+    }
 }

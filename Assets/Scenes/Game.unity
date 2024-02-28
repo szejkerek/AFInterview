@@ -152,20 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6319dbe5584eacb6e3452a3a90017b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items:
-  - name: Wooden shield
-    value: 90
-  - name: Bow
-    value: 150
-  - name: Mana Potion
-    value: 60
-  - name: Sword
-    value: 130
-  - name: Long Sword
-    value: 160
-  - name: Plate Armor
-    value: 300
   money: 280
+  items: []
 --- !u!4 &117263
 Transform:
   m_ObjectHideFlags: 0
@@ -194,6 +182,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 1562054653796185208, guid: 70297e35c79c32843b2cbbda048d720c,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: dfd7c557505f6294a9e78ac87ffa632e,
+        type: 2}
     - target: {fileID: 1562054653796185208, guid: 70297e35c79c32843b2cbbda048d720c,
         type: 3}
       propertyPath: item.name
@@ -277,6 +271,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 1562054653796185208, guid: 70297e35c79c32843b2cbbda048d720c,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ab30019efbb34048830e087fba24229,
+        type: 2}
     - target: {fileID: 6760591476060598716, guid: 70297e35c79c32843b2cbbda048d720c,
         type: 3}
       propertyPath: m_RootOrder
@@ -488,9 +488,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryController: {fileID: 117262}
+  possibleItems:
+  - {fileID: 11400000, guid: dfd7c557505f6294a9e78ac87ffa632e, type: 2}
+  - {fileID: 11400000, guid: 9ab30019efbb34048830e087fba24229, type: 2}
+  - {fileID: 11400000, guid: dfdd1fe35522a844d99499eebb83956e, type: 2}
+  itemLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
   itemSellMaxValue: 150
   itemSpawnParent: {fileID: 246465938}
-  itemPrefab: {fileID: 1329781387587706877, guid: 70297e35c79c32843b2cbbda048d720c,
+  itemPresenterPrefab: {fileID: 1562054653796185208, guid: 70297e35c79c32843b2cbbda048d720c,
     type: 3}
   itemSpawnArea: {fileID: 1201324633}
   itemSpawnInterval: 2.5
@@ -586,6 +593,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 1562054653796185208, guid: 70297e35c79c32843b2cbbda048d720c,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: dfd7c557505f6294a9e78ac87ffa632e,
+        type: 2}
     - target: {fileID: 6760591476060598716, guid: 70297e35c79c32843b2cbbda048d720c,
         type: 3}
       propertyPath: m_RootOrder
@@ -770,6 +783,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 1562054653796185208, guid: 70297e35c79c32843b2cbbda048d720c,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: dfdd1fe35522a844d99499eebb83956e,
+        type: 2}
     - target: {fileID: 6760591476060598716, guid: 70297e35c79c32843b2cbbda048d720c,
         type: 3}
       propertyPath: m_RootOrder
@@ -998,6 +1017,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 1562054653796185208, guid: 70297e35c79c32843b2cbbda048d720c,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: dfd7c557505f6294a9e78ac87ffa632e,
+        type: 2}
     - target: {fileID: 6760591476060598716, guid: 70297e35c79c32843b2cbbda048d720c,
         type: 3}
       propertyPath: m_RootOrder
@@ -1071,6 +1096,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 1562054653796185208, guid: 70297e35c79c32843b2cbbda048d720c,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: dfd7c557505f6294a9e78ac87ffa632e,
+        type: 2}
     - target: {fileID: 6760591476060598716, guid: 70297e35c79c32843b2cbbda048d720c,
         type: 3}
       propertyPath: m_RootOrder
@@ -1241,6 +1272,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1562054653796185208, guid: 70297e35c79c32843b2cbbda048d720c,
         type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: dfd7c557505f6294a9e78ac87ffa632e,
+        type: 2}
+    - target: {fileID: 1562054653796185208, guid: 70297e35c79c32843b2cbbda048d720c,
+        type: 3}
       propertyPath: item.name
       value: Carrot
       objectReference: {fileID: 0}
@@ -1359,6 +1396,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 1562054653796185208, guid: 70297e35c79c32843b2cbbda048d720c,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: dfd7c557505f6294a9e78ac87ffa632e,
+        type: 2}
     - target: {fileID: 1562054653796185208, guid: 70297e35c79c32843b2cbbda048d720c,
         type: 3}
       propertyPath: item.name
@@ -1481,6 +1524,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 1562054653796185208, guid: 70297e35c79c32843b2cbbda048d720c,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: dfd7c557505f6294a9e78ac87ffa632e,
+        type: 2}
     - target: {fileID: 6760591476060598716, guid: 70297e35c79c32843b2cbbda048d720c,
         type: 3}
       propertyPath: m_RootOrder

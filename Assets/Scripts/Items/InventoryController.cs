@@ -1,13 +1,12 @@
 ﻿namespace AFSInterview.Items
 {
-	using System.Collections.Generic;
-    using System.Linq;
+    using System.Collections.Generic;
     using UnityEngine;
 
-	public class InventoryController : MonoBehaviour
+    public class InventoryController : MonoBehaviour
 	{
-		[SerializeField] private List<Item> items;
 		[SerializeField] private int money;
+		[SerializeField] private List<Item> items;
 
 		public int Money => money;
 		public int ItemsCount => items.Count;

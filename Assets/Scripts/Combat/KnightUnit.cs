@@ -6,9 +6,9 @@ namespace AFSInterview.Combat
 {
     public class KnightUnit : Unit
     {
-        public override void PerformAttack(Unit target)
+        public override IEnumerator PerformAction(Army ownArmy, Army enemyArmy)
         {
-            throw new System.NotImplementedException();
+            yield return null;
         }
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace AFSInterview.Combat
@@ -6,16 +7,29 @@ namespace AFSInterview.Combat
     {
         [SerializeField] UnitDataSO unitData;
         public UnitDataSO UnitData => unitData;
+        public bool IsDead => isDead;
 
         int currentHealth;
         HealthBar healthBar;
+        Vector3 startingPosition;
+        bool isDead = false;
+
         private void Awake()
         {
             healthBar = GetComponentInChildren<HealthBar>();
+            startingPosition = transform.position;
             currentHealth = unitData.MaxHealth;
         }
 
-        public abstract void PerformAttack(Unit target);
+        public abstract IEnumerator PerformAction(Army ownArmy, Army enemyArmy);
+
+        protected void RestoreHealth()
+        {
+            currentHealth = unitData.MaxHealth;
+            healthBar.UpdateHealth(currentHealth, unitData.MaxHealth);
+
+            Debug.Log($"{gameObject.name} health has been restored, current health: {currentHealth}.");
+        }
 
         protected void DealDamage(Unit target)
         {
@@ -54,8 +68,9 @@ namespace AFSInterview.Combat
 
         private void UnitDeath()
         {
+            isDead = true;
+            gameObject.SetActive(false);
             Debug.Log($"{gameObject.name} was eliminated from battlefield.");
-            Destroy(gameObject);
         }
     }
 }

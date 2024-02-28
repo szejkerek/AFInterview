@@ -1349,8 +1349,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1464522873}
-  - component: {fileID: 1464522875}
+  - component: {fileID: 1464522877}
   - component: {fileID: 1464522876}
+  - component: {fileID: 1464522875}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -1417,8 +1418,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: 200
-  moneyDisplay: {fileID: 1931683898}
   items: []
+--- !u!114 &1464522877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464522872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15c0182ba08b474f97135fc69698796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyDisplay: {fileID: 1931683898}
 --- !u!1001 &1472453789
 PrefabInstance:
   m_ObjectHideFlags: 0

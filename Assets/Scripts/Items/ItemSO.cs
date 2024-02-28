@@ -7,5 +7,6 @@
 	{
         [field: SerializeField] public string Name { private set; get; }
         [field: SerializeField] public int SellValue { private set; get; }
+        [field: SerializeField] public Color ModelColor { private set; get; }
 	}
 }

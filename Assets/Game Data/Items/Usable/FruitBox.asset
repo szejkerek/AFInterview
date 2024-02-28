@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Fruit Box
   <SellValue>k__BackingField: 75
+  <ModelColor>k__BackingField: {r: 1, g: 0.7122642, b: 0.7146246, a: 0}
   <PossibleDrop>k__BackingField:
   - {fileID: 11400000, guid: dfd7c557505f6294a9e78ac87ffa632e, type: 2}
   - {fileID: 11400000, guid: dfd7c557505f6294a9e78ac87ffa632e, type: 2}

@@ -8,12 +8,16 @@
     [Serializable]
     public class InventoryManager : MonoBehaviour
     {
-
         [SerializeField] private int money;
         [SerializeField] private TextMeshProUGUI moneyDisplay;
         [SerializeField] private List<ItemSO> items = new List<ItemSO>();
         public int Money => money;
         public int ItemsCount => items.Count;
+
+        private void Awake()
+        {
+            UpdateMoneyDisplay();
+        }
 
         public void SellAllItemsUpToValue(int maxValue)
         {
@@ -25,6 +29,7 @@
                 money += items[i].SellValue;
                 RemoveItem(i);
             }
+            UpdateMoneyDisplay();
         }
 
         public void AddMoney(int amount)

@@ -1,5 +1,6 @@
 ﻿using AFSInterview.Utility;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace AFSInterview.Combat
@@ -7,11 +8,9 @@ namespace AFSInterview.Combat
     public class Army : MonoBehaviour
     {
         public static System.Action<Army> onNextAction;
+        public int TurnNumber = 0;
         public string ArmyName => armyName;
         [SerializeField] string armyName;
-
-        public int TurnNumber => turnNumber;
-        private int turnNumber = 0;
 
         [SerializeField, Range(0f,16f)] float spawnRange;
         [SerializeField] List<Unit> initialArmy;
@@ -19,8 +18,6 @@ namespace AFSInterview.Combat
 
         Army enemyArmy;
 
-        List<Unit> currentArmy = new List<Unit>();
-        Queue<Unit> actionQueue = new Queue<Unit>();
 
         public void SpawnUnits(Army enemyArmy)
         {
@@ -40,9 +37,12 @@ namespace AFSInterview.Combat
             actionQueue = new Queue<Unit>(currentArmy);
         }
 
+        List<Unit> currentArmy = new List<Unit>();
+        Queue<Unit> actionQueue = new Queue<Unit>();
         public bool IsAlive()
         {
             currentArmy.RemoveAll(item => item.IsDead);
+            actionQueue = new Queue<Unit>(actionQueue.Where(item => !item.IsDead));
             return currentArmy.Count > 0;
         }
 
@@ -56,9 +56,8 @@ namespace AFSInterview.Combat
 
         public void ExecuteNextAction()
         {
-            turnNumber++;
             Unit currentUnit = actionQueue.Dequeue();
-            StartCoroutine(currentUnit.PerformAction(this, enemyArmy));
+            StartCoroutine(currentUnit.PerformAction(this, enemyArmy));          
         }
 
         public bool ShouldChangeTurn()

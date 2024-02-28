@@ -9,9 +9,9 @@ namespace AFSInterview.Combat
     {
         public override IEnumerator PerformAction(Army ownArmy, Army enemyArmy)
         {
-            startingPosition = transform.position;
             var enemy = enemyArmy.CurrentArmy.SelectRandomElement();
 
+            yield return StartCoroutine(RotateCharacter(enemy.transform.position));
             yield return StartCoroutine(MoveCharacter(enemy.transform.position, 2f));
             yield return new WaitForSeconds(0.5f);
 

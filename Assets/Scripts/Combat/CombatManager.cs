@@ -56,10 +56,10 @@ namespace AFSInterview.Combat
 
             if (currentArmy.ShouldChangeTurn())
             {
+                currentArmy.TurnNumber++;
                 currentArmy.RefillTurnQueue();
                 rightTurn = !rightTurn;
             }
-
             
             isPlayable = true;
         }

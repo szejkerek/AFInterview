@@ -4,19 +4,16 @@
 
 	public class ItemPresenter : MonoBehaviour, IItemHolder
 	{
-		[SerializeField] private ItemSO item;
+		private ItemSO item;
 		private Renderer visuals;
         private void Awake()
         {
 			visuals = gameObject.GetComponentInChildren<Renderer>();
-            Init(item);
         }
 
         public void Init(ItemSO initialItem)
 		{
-			if(item == null) 
-				item = initialItem;
-
+			item = initialItem;
 			SetupVisuals();
         }
 

@@ -2,24 +2,18 @@
 {
     using System;
     using System.Collections.Generic;
+    using TMPro;
     using UnityEngine;
 
     [Serializable]
-    public class Inventory
+    public class InventoryManager : MonoBehaviour
     {
-        public static Action<int> onMoneyUpdated;
 
         [SerializeField] private int money;
+        [SerializeField] private TextMeshProUGUI moneyDisplay;
         [SerializeField] private List<ItemSO> items = new List<ItemSO>();
-
         public int Money => money;
         public int ItemsCount => items.Count;
-
-        public Inventory()
-        {
-            if (money > 0)
-                onMoneyUpdated?.Invoke(money);
-        }
 
         public void SellAllItemsUpToValue(int maxValue)
         {
@@ -36,13 +30,13 @@
         public void AddMoney(int amount)
         {
             money += amount;
-            onMoneyUpdated?.Invoke(money);
+            UpdateMoneyDisplay();
         }
 
         public void AddItem(ItemSO item)
 		{
 			items.Add(item);
-		}
+        }
 
         void RemoveItem(int indexToRemove)
         {
@@ -55,6 +49,10 @@
         public void RemoveItem(ItemSO itemToRemove)
         {
             items.Remove(itemToRemove);
+        }
+        private void UpdateMoneyDisplay()
+        {
+            moneyDisplay.text = $"Money: {money}";
         }
     }
 }

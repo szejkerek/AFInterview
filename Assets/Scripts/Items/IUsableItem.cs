@@ -2,6 +2,6 @@
 {
     interface IUsableItem
     {
-        public void Use(Inventory inventory);
+        public void Use(InventoryManager inventory);
     }
 }

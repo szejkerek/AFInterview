@@ -2,12 +2,11 @@
 {
     using AFSInterview.Utility;
     using System.Collections.Generic;
-    using TMPro;
     using UnityEngine;
 
     public class ItemsManager : MonoBehaviour
 	{
-        [SerializeField] private Inventory inventory;
+        [SerializeField] private InventoryManager inventory;
         [SerializeField] private List<ItemSO> possibleItems;
 
         [Header("Items proporties")]
@@ -24,7 +23,6 @@
         private void Awake()
         {
             mainCamera = Camera.main;
-            inventory = new Inventory();
         }
 
         private void Update()

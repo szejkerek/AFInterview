@@ -8,7 +8,7 @@
     public class ChestItemSO : ItemSO, IUsableItem
     {
         [field: SerializeField] public List<ItemSO> PossibleDrop { private set; get; }
-        public void Use(Inventory inventory)
+        public void Use(InventoryManager inventory)
         {
             if (PossibleDrop.Count == 0)
                 return;

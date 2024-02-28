@@ -1386,9 +1386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b6ca9eb0ebe4ffcb7fad76ea4a3b6ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory:
-    money: 200
-    items: []
+  inventory: {fileID: 1464522876}
   possibleItems:
   - {fileID: 11400000, guid: dfd7c557505f6294a9e78ac87ffa632e, type: 2}
   - {fileID: 11400000, guid: 9ab30019efbb34048830e087fba24229, type: 2}
@@ -1415,10 +1413,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1464522872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab7fff080e8007c46b5eceab33ef5a0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c6319dbe5584eacb6e3452a3a90017b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: 200
   moneyDisplay: {fileID: 1931683898}
+  items: []
 --- !u!1001 &1472453789
 PrefabInstance:
   m_ObjectHideFlags: 0

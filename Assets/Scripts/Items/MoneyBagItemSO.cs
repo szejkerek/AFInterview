@@ -5,7 +5,7 @@
     [CreateAssetMenu(fileName = "MoneyBag", menuName = "Items/Money Bag")]
     public class MoneyBagItemSO : ItemSO, IUsableItem
     {
-        public void Use(Inventory inventory)
+        public void Use(InventoryManager inventory)
         {
             inventory.AddMoney(SellValue);
         }

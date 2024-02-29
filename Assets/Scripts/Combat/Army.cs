@@ -17,17 +17,18 @@ namespace AFSInterview.Combat
         public List<Unit> CurrentArmy => currentArmy;
 
         Army enemyArmy;
-
+        List<Unit> currentArmy = new List<Unit>();
+        Queue<Unit> actionQueue = new Queue<Unit>();
 
         public void SpawnUnits(Army enemyArmy)
         {
             this.enemyArmy = enemyArmy;
-            foreach (var item in initialArmy)
+
+            foreach (var unitPrefab in initialArmy)
             {
-                var unit = Instantiate(item, RandomPosition(), Quaternion.identity);
-                currentArmy.Add(unit);
-                unit.transform.parent = transform;
+                SpawnUnit(unitPrefab);
             }
+
             currentArmy.Shuffle();
             RefillTurnQueue();
         }
@@ -38,13 +39,19 @@ namespace AFSInterview.Combat
             actionQueue = new Queue<Unit>(currentArmy);
         }
 
-        List<Unit> currentArmy = new List<Unit>();
-        Queue<Unit> actionQueue = new Queue<Unit>();
+
         public bool IsAlive()
         {
             currentArmy.RemoveAll(item => item.IsDead);
             actionQueue = new Queue<Unit>(actionQueue.Where(item => !item.IsDead));
             return currentArmy.Count > 0;
+        }
+
+        private void SpawnUnit(Unit unitPrefab)
+        {
+            var unit = Instantiate(unitPrefab, RandomPosition(), Quaternion.identity);
+            currentArmy.Add(unit);
+            unit.transform.parent = transform;
         }
 
         private Vector3 RandomPosition()

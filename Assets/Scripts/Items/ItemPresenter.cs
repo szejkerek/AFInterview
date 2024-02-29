@@ -1,7 +1,7 @@
-﻿namespace AFSInterview.Items
-{
-	using UnityEngine;
+﻿using UnityEngine;
 
+namespace AFSInterview.Items
+{
 	public class ItemPresenter : MonoBehaviour, IItemHolder
 	{
 		private ItemSO item;
@@ -16,18 +16,17 @@
 			item = initialItem;
 			SetupVisuals();
         }
+        public ItemSO GetItem(bool disposeHolder)
+        {
+            if (disposeHolder)
+                Destroy(gameObject);
 
-		void SetupVisuals()
+            return item;
+        }
+
+        void SetupVisuals()
 		{
             visuals.material.color = item.ModelColor;
         }
-
-		public ItemSO GetItem(bool disposeHolder)
-		{
-			if (disposeHolder)
-				Destroy(gameObject);
-			
-			return item;
-		}
 	}
 }

@@ -1,9 +1,9 @@
-﻿namespace AFSInterview.Items
-{
-    using AFSInterview.Utility;
-    using System.Collections.Generic;
-    using UnityEngine;
+﻿using AFSInterview.Utility;
+using System.Collections.Generic;
+using UnityEngine;
 
+namespace AFSInterview.Items
+{
     [CreateAssetMenu(fileName = "ChestItem", menuName = "Items/Chest Item")]
     public class ChestItemSO : ItemSO, IUsableItem
     {

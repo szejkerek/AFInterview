@@ -1,5 +1,3 @@
-using AFSInterview.Utility;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace AFSInterview.Combat

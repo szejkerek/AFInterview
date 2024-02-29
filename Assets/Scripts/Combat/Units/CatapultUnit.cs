@@ -2,7 +2,6 @@ using AFSInterview.Combat;
 using AFSInterview.Utility;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class CatapultUnit : RangeUnit

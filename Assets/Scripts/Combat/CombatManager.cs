@@ -17,7 +17,7 @@ namespace AFSInterview.Combat
             left.SpawnUnits(enemyArmy: right);
             rightTurn = Random.Range(0, 2) == 0;
             Army.onNextAction?.Invoke(GetCurrentTurnArmy());
-            Unit.OnActionEnded += OnEndTurn;
+            Unit.OnActionEnded += () => OnEndTurn();
         }
 
         public Army GetCurrentTurnArmy()
@@ -45,9 +45,8 @@ namespace AFSInterview.Combat
             }
             else
             {
-
                 Debug.Log("No units left to perform actions.");
-                OnEndTurn();
+                OnEndTurn(true);
             }
         }
 
@@ -57,7 +56,7 @@ namespace AFSInterview.Combat
             Army.onNextAction?.Invoke(GetCurrentTurnArmy());
         }
 
-        private void OnEndTurn()
+        private void OnEndTurn(bool reroll = false)
         {
             Army currentArmy = GetCurrentTurnArmy();
             
@@ -70,6 +69,11 @@ namespace AFSInterview.Combat
             if (currentArmy.ShouldChangeTurn())
             {
                 ChangeTurn(currentArmy);
+            }
+
+            if (reroll)
+            {
+                ExecuteNextTurn();
             }
 
             isPlayable = true;

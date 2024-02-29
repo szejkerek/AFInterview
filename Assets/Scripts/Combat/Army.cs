@@ -26,6 +26,7 @@ namespace AFSInterview.Combat
             {
                 var unit = Instantiate(item, RandomPosition(), Quaternion.identity);
                 currentArmy.Add(unit);
+                unit.transform.parent = transform;
             }
             currentArmy.Shuffle();
             RefillTurnQueue();
@@ -61,9 +62,17 @@ namespace AFSInterview.Combat
 
         public Unit GetUnitToPerform()
         {
+            if(actionQueue.Count == 0)
+                return null;
 
+            Unit unit = actionQueue.Dequeue();
 
-            return actionQueue.Dequeue();
+            if (TurnNumber % unit.UnitData.AttackInterval == 0)
+            {
+                return unit;
+            }
+
+            return null;
         }
 
         public bool ShouldChangeTurn()

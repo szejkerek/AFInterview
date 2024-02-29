@@ -190,7 +190,7 @@ MonoBehaviour:
     type: 3}
   bulletSpeed: 10
   destroyDistance: 0.1
-  explosionRange: 7
+  explosionRange: 4
 --- !u!1 &6350142192150324099
 GameObject:
   m_ObjectHideFlags: 0

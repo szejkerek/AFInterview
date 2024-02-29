@@ -17,14 +17,16 @@ namespace AFSInterview.Combat
         public bool IsDead => isDead;
 
         int currentHealth;
-        HealthBar healthBar;
+        FloatingInformation flaotingInformation;
         bool isDead = false;
 
         private void Awake()
         {
-            healthBar = GetComponentInChildren<HealthBar>();
+            flaotingInformation = GetComponentInChildren<FloatingInformation>();
             startingPosition = transform.position;
             currentHealth = unitData.MaxHealth;
+            flaotingInformation.UpdateHealth(currentHealth, unitData.MaxHealth);
+            flaotingInformation.SetUnitName(gameObject.name);
         }
 
         public abstract IEnumerator PerformAction(Army ownArmy, Army enemyArmy);
@@ -32,7 +34,7 @@ namespace AFSInterview.Combat
         public void RestoreHealth()
         {
             currentHealth = unitData.MaxHealth;
-            healthBar.UpdateHealth(currentHealth, unitData.MaxHealth);
+            flaotingInformation.UpdateHealth(currentHealth, unitData.MaxHealth);
 
             Debug.Log($"{gameObject.name} health has been restored, current health: {currentHealth}.");
         }
@@ -118,7 +120,7 @@ namespace AFSInterview.Combat
         private void TakeDamage(int damage)
         {
             currentHealth = Mathf.Max(0, currentHealth - damage);
-            healthBar.UpdateHealth(currentHealth, unitData.MaxHealth);
+            flaotingInformation.UpdateHealth(currentHealth, unitData.MaxHealth);
 
             Debug.Log($"{gameObject.name} received {damage} damage, current health: {currentHealth}.");
 

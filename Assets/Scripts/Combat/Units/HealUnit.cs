@@ -22,7 +22,8 @@ public class HealUnit : RangeUnit
     Unit FindLowestHealthUnit(Army army)
     {
         return army.CurrentArmy
-                   .OrderBy(unit => unit.CurrentHealth)
+                   .Where(unit => unit != this)
+                   .OrderBy(unit => (float) unit.CurrentHealth / unit.UnitData.MaxHealth)
                    .FirstOrDefault();
     }
 }

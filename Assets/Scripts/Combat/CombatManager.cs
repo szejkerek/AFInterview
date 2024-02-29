@@ -34,8 +34,21 @@ namespace AFSInterview.Combat
         {
             if (!isPlayable)
                 return;
-            OnStartTurn();
-            GetCurrentTurnArmy().ExecuteNextAction();
+
+            Army current = GetCurrentTurnArmy();
+            Unit performUnit = current.GetUnitToPerform();
+
+            if (performUnit != null)
+            {
+                OnStartTurn();
+                current.ExecuteNextAction(performUnit);
+            }
+            else
+            {
+
+                Debug.Log("No units left to perform actions.");
+                OnEndTurn();
+            }
         }
 
         private void OnStartTurn()
@@ -56,12 +69,17 @@ namespace AFSInterview.Combat
 
             if (currentArmy.ShouldChangeTurn())
             {
-                currentArmy.TurnNumber++;
-                currentArmy.RefillTurnQueue();
-                rightTurn = !rightTurn;
+                ChangeTurn(currentArmy);
             }
-            
+
             isPlayable = true;
+        }
+
+        private void ChangeTurn(Army currentArmy)
+        {
+            currentArmy.TurnNumber++;
+            currentArmy.RefillTurnQueue();
+            rightTurn = !rightTurn;
         }
     }
 }

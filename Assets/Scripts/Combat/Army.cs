@@ -54,10 +54,16 @@ namespace AFSInterview.Combat
             return new Vector3(transform.position.x + xOffset, 0, transform.position.z + zOffset);
         }
 
-        public void ExecuteNextAction()
+        public void ExecuteNextAction(Unit toPerform)
         {
-            Unit currentUnit = actionQueue.Dequeue();
-            StartCoroutine(currentUnit.PerformAction(this, enemyArmy));          
+            StartCoroutine(toPerform.PerformAction(this, enemyArmy));
+        }
+
+        public Unit GetUnitToPerform()
+        {
+
+
+            return actionQueue.Dequeue();
         }
 
         public bool ShouldChangeTurn()

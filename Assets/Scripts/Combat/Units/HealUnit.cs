@@ -12,7 +12,7 @@ public class HealUnit : RangeUnit
         yield return new WaitForSeconds(0.5f);
 
         yield return StartCoroutine(RotateCharacter(ally.transform.position));
-        yield return StartCoroutine(ShootProjectile(bulletPrefab, shootingPoint, ally.transform.position, destroyDistance, arrowSpeed));
+        yield return StartCoroutine(ShootProjectile(bulletPrefab, shootingPoint, ally.transform.position, destroyDistance, bulletSpeed));
         ally.RestoreHealth();
 
 

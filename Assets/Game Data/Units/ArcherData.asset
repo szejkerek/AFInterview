@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b018c2973e7ca3b4fb91fb1d31452d8d, type: 3}
   m_Name: ArcherData
   m_EditorClassIdentifier: 
-  <UnitAttribute>k__BackingField: 01000000
-  <MaxHealth>k__BackingField: 4
-  <ArmorPoints>k__BackingField: 1
-  <AttackInterval>k__BackingField: 2
-  <AttackDamage>k__BackingField: 3
+  <UnitAttribute>k__BackingField: 00000000
+  <MaxHealth>k__BackingField: 6
+  <ArmorPoints>k__BackingField: 3
+  <AttackInterval>k__BackingField: 1
+  <AttackDamage>k__BackingField: 7
   <AttackDamageOverride>k__BackingField:
-    <UnitAttribute>k__BackingField: 0
-    <AttackDamage>k__BackingField: 2
+    <UnitAttribute>k__BackingField: 1
+    <AttackDamage>k__BackingField: 10

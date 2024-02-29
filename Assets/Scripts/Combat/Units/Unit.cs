@@ -6,6 +6,7 @@ namespace AFSInterview.Combat
 {
     public abstract class Unit : MonoBehaviour
     {
+        private const float maxProjectileTime = 6f;
         public static Action OnActionEnded;
         protected Vector3 startingPosition;
 
@@ -48,12 +49,13 @@ namespace AFSInterview.Combat
 
             foreach(UnitAttribute unitAttribute in target.UnitData.UnitAttribute) 
             {
-                if(UnitData.AttackDamageOverride.UnitAttribute == unitAttribute)
+                if (UnitData.AttackDamageOverride.UnitAttribute == unitAttribute)
                 {
-                    finalDamage = target.unitData.AttackDamage;
+                    finalDamage = UnitData.AttackDamageOverride.AttackDamage;
+                    Debug.Log($"{gameObject.name} overrided {unitData.AttackDamage} damage to {UnitData.AttackDamageOverride.AttackDamage} against {UnitData.AttackDamageOverride.UnitAttribute}.");
                     break;
                 }
-            }
+           }
 
             finalDamage = Mathf.Max(1, finalDamage - target.unitData.ArmorPoints);
             Debug.Log($"{gameObject.name} delt {finalDamage} damage ({unitData.AttackDamage} - {target.unitData.ArmorPoints}) to {target.gameObject.name}.");
@@ -66,7 +68,7 @@ namespace AFSInterview.Combat
             while (Vector3.Distance(transform.position, position) > tooCloseRange)
             {
                 transform.position = Vector3.MoveTowards(transform.position, position, Time.deltaTime * movementSpeed);
-                if (Time.time - startTime >= 1.5f)
+                if (Time.time - startTime >= maxProjectileTime)
                 {
                     break;
                 }
@@ -83,7 +85,7 @@ namespace AFSInterview.Combat
             while (transform.rotation != targetRotation)
             {
                 transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
-                if (Time.time - startTime >= 1.5f)
+                if (Time.time - startTime >= maxProjectileTime)
                 {
                     break;
                 }
@@ -102,7 +104,7 @@ namespace AFSInterview.Combat
             while (Vector3.Distance(projectile.transform.position, targetPosition) > destroyDistance)
             {
                 projectile.transform.position += direction * speed * Time.deltaTime;
-                if (Time.time - startTime >= 1.5f)
+                if (Time.time - startTime >= maxProjectileTime)
                 {
                     break; 
                 }

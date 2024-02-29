@@ -9,7 +9,7 @@ namespace AFSInterview.Combat
     {
         [SerializeField] protected Transform shootingPoint;
         [SerializeField] protected GameObject bulletPrefab;
-        [SerializeField] protected float arrowSpeed = 5f; 
+        [SerializeField] protected float bulletSpeed = 5f; 
         [SerializeField] protected float destroyDistance = 0.1f;
         public override IEnumerator PerformAction(Army ownArmy, Army enemyArmy)
         {
@@ -18,7 +18,7 @@ namespace AFSInterview.Combat
             yield return new WaitForSeconds(0.5f);
 
             yield return StartCoroutine(RotateCharacter(enemy.transform.position));
-            yield return StartCoroutine(ShootProjectile(bulletPrefab, shootingPoint, enemy.transform.position, destroyDistance, arrowSpeed));
+            yield return StartCoroutine(ShootProjectile(bulletPrefab, shootingPoint, enemy.transform.position, destroyDistance, bulletSpeed));
             DealDamage(enemy);
 
 

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: RamData
   m_EditorClassIdentifier: 
   <UnitAttribute>k__BackingField: 0200000001000000
-  <MaxHealth>k__BackingField: 4
-  <ArmorPoints>k__BackingField: 1
-  <AttackInterval>k__BackingField: 2
-  <AttackDamage>k__BackingField: 3
+  <MaxHealth>k__BackingField: 15
+  <ArmorPoints>k__BackingField: 5
+  <AttackInterval>k__BackingField: 3
+  <AttackDamage>k__BackingField: 1
   <AttackDamageOverride>k__BackingField:
-    <UnitAttribute>k__BackingField: 0
-    <AttackDamage>k__BackingField: 2
+    <UnitAttribute>k__BackingField: 2
+    <AttackDamage>k__BackingField: 20

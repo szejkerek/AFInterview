@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: KnightData
   m_EditorClassIdentifier: 
   <UnitAttribute>k__BackingField: 01000000
-  <MaxHealth>k__BackingField: 4
-  <ArmorPoints>k__BackingField: 1
+  <MaxHealth>k__BackingField: 10
+  <ArmorPoints>k__BackingField: 10
   <AttackInterval>k__BackingField: 2
-  <AttackDamage>k__BackingField: 3
+  <AttackDamage>k__BackingField: 2
   <AttackDamageOverride>k__BackingField:
     <UnitAttribute>k__BackingField: 0
-    <AttackDamage>k__BackingField: 2
+    <AttackDamage>k__BackingField: 4

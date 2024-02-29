@@ -286,7 +286,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 278868167}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8, y: 0, z: 0}
+  m_LocalPosition: {x: -12, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -307,12 +307,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TurnNumber: 0
   armyName: Left army
-  spawnRange: 10.49
+  spawnRange: 16
   initialArmy:
-  - {fileID: 2360395596933593018, guid: 0e600d500129f5648a655e5757a46c67, type: 3}
   - {fileID: 4007728192066735702, guid: a292741bf8b9fe746ae9a4b398560989, type: 3}
-  - {fileID: 5164099960706163047, guid: a5a97a481ecbf4d4ab67fce9baaebe0b, type: 3}
   - {fileID: 773941018346932161, guid: e3c550d8ef120d146a415aafe690766f, type: 3}
+  - {fileID: 5164099960706163047, guid: a5a97a481ecbf4d4ab67fce9baaebe0b, type: 3}
+  - {fileID: 5164099960706163047, guid: a5a97a481ecbf4d4ab67fce9baaebe0b, type: 3}
 --- !u!1 &462161345
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,8 +736,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884237429}
-  m_LocalRotation: {x: 0.42261827, y: -0, z: -0, w: 0.9063079}
-  m_LocalPosition: {x: -8, y: 12.99, z: -12.5}
+  m_LocalRotation: {x: 0.56529367, y: -0.008164445, z: 0.0055956864, w: 0.82483035}
+  m_LocalPosition: {x: -8.5004015, y: 20.377728, z: -10.066775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1022,7 +1022,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353391284}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8, y: 0, z: 0}
+  m_LocalPosition: {x: 12, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1043,12 +1043,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TurnNumber: 0
   armyName: Right army
-  spawnRange: 10.49
+  spawnRange: 16
   initialArmy:
-  - {fileID: 2360395596933593018, guid: 0e600d500129f5648a655e5757a46c67, type: 3}
-  - {fileID: 4007728192066735702, guid: a292741bf8b9fe746ae9a4b398560989, type: 3}
-  - {fileID: 5164099960706163047, guid: a5a97a481ecbf4d4ab67fce9baaebe0b, type: 3}
   - {fileID: 773941018346932161, guid: e3c550d8ef120d146a415aafe690766f, type: 3}
+  - {fileID: 3359639611070982378, guid: f7a99a63d38918f429b37335f01a1935, type: 3}
+  - {fileID: 2360395596933593018, guid: 0e600d500129f5648a655e5757a46c67, type: 3}
+  - {fileID: 2360395596933593018, guid: 0e600d500129f5648a655e5757a46c67, type: 3}
+  - {fileID: 2360395596933593018, guid: 0e600d500129f5648a655e5757a46c67, type: 3}
 --- !u!1 &1464522872
 GameObject:
   m_ObjectHideFlags: 0
